@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --primary: 99 102 241;
+    --primary-hover: 79 70 229;
+    --primary-light: 238 242 255;
+    --primary-ring: 199 210 254;
+    --app-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --app-radius: 0.75rem;
+    --app-border-width: 1px;
+  }
+
+  .dark {
+    --background: #020617;
+    --foreground: #f8fafc;
+  }
+
+  /* Color Schemes */
+  [data-color="indigo"] {
+    --primary: 99 102 241;
+    --primary-hover: 79 70 229;
+    --primary-light: 238 242 255;
+    --primary-ring: 199 210 254;
+  }
+  [data-color="violet"] {
+    --primary: 139 92 246;
+    --primary-hover: 124 58 237;
+    --primary-light: 245 243 255;
+    --primary-ring: 221 214 254;
+  }
+  [data-color="blue"] {
+    --primary: 37 99 235;
+    --primary-hover: 29 78 216;
+    --primary-light: 239 246 255;
+    --primary-ring: 191 219 254;
+  }
+  [data-color="emerald"] {
+    --primary: 16 185 129;
+    --primary-hover: 5 150 105;
+    --primary-light: 236 253 245;
+    --primary-ring: 167 243 208;
+  }
+  [data-color="rose"] {
+    --primary: 244 63 94;
+    --primary-hover: 225 29 72;
+    --primary-light: 255 241 242;
+    --primary-ring: 254 205 211;
+  }
+  [data-color="amber"] {
+    --primary: 217 119 6;
+    --primary-hover: 180 83 9;
+    --primary-light: 254 243 199;
+    --primary-ring: 253 230 138;
+  }
+
+  /* Font Families */
+  [data-font="inter"] {
+    --app-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  [data-font="roboto"] {
+    --app-font: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  [data-font="plus-jakarta"] {
+    --app-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  [data-font="outfit"] {
+    --app-font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  [data-font="system"] {
+    --app-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* Border Radius */
+  [data-radius="none"] {
+    --app-radius: 0px;
+  }
+  [data-radius="sm"] {
+    --app-radius: 0.25rem;
+  }
+  [data-radius="md"] {
+    --app-radius: 0.5rem;
+  }
+  [data-radius="lg"] {
+    --app-radius: 0.875rem;
+  }
+  [data-radius="full"] {
+    --app-radius: 1.5rem;
+  }
+
+  /* Border Width */
+  [data-border="thin"] {
+    --app-border-width: 1px;
+  }
+  [data-border="normal"] {
+    --app-border-width: 1.5px;
+  }
+  [data-border="thick"] {
+    --app-border-width: 2.5px;
+  }
+
+  /* Apply custom theme radius cleanly only to major card & modal containers */
+  [data-radius] .theme-card,
+  [data-radius] .theme-box {
+    border-radius: var(--app-radius);
+  }
+
+  /* Apply theme border width to bordered cards */
+  [data-border] .theme-border {
+    border-width: var(--app-border-width);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--app-font);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.25s ease-out forwards;
+}
